@@ -17,6 +17,7 @@ class TextFieldCustom extends StatefulWidget {
   final TextInputType? inputType;
   final ValueChanged<String>? onChanged;
   final bool? isRequired;
+  final Widget? suffix;
 
   TextFieldCustom({
     Key? key,
@@ -33,6 +34,7 @@ class TextFieldCustom extends StatefulWidget {
     this.minLines = 5,
     this.onChanged,
     this.isRequired = false,
+    this.suffix,
   }) : super(key: key);
 
   @override
@@ -127,6 +129,7 @@ class _TextFieldCustomState extends State<TextFieldCustom> {
                   label: _renderLabel(),
                   filled: true,
                   isDense: true,
+                  suffix: widget.suffix,
                   fillColor: Component.color.backgroundTextField,
                   contentPadding: padding(vertical: 16, horizontal: 16),
                   border: Component.border.borderTextField,

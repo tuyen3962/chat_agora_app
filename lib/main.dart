@@ -14,9 +14,12 @@ import 'package:mobileapp/data/repositories/account/account_repository.dart';
 import 'package:mobileapp/data/repositories/account/iaccount_repository.dart';
 import 'package:mobileapp/data/repositories/auth/auth_repository.dart';
 import 'package:mobileapp/data/repositories/auth/iauth_repository.dart';
+import 'package:mobileapp/data/repositories/chat/chat_repository.dart';
+import 'package:mobileapp/data/repositories/chat/ichat_repository.dart';
 import 'package:mobileapp/data/repositories/upload/iupload_repository.dart';
 import 'package:mobileapp/data/repositories/upload/upload_repository.dart';
 import 'package:mobileapp/data/service/account_service.dart';
+import 'package:mobileapp/data/service/chat_agora_service.dart';
 import 'package:mobileapp/data/service/file_service.dart';
 import 'package:mobileapp/data/service/local_service.dart';
 import 'package:mobileapp/data/service/notification_service/notification_service.dart';
@@ -39,7 +42,8 @@ void main() async {
 
   Get.put<IUploadRepository>(UploadRepository(api: Get.find()), permanent: true);
   Get.put<IAccountRepository>(AccountRepository(api: Get.find()), permanent: true);
-  Get.put<IAuthRepository>(AuthRepository(api: Get.find()), permanent: true);
+  Get.put<ChatAgoraService>(ChatAgoraService(), permanent: true);
+  Get.put<IAuthRepository>(AuthRepository(api: Get.find(), accountRepository: Get.find()), permanent: true);
 
   Get.put<AccountService>(
       AccountService(
@@ -48,6 +52,8 @@ void main() async {
         authRepository: Get.find(),
       ),
       permanent: true);
+
+  Get.put<IChatRepository>(ChatRepository(accountService: Get.find()), permanent: true);
 
   Get.put<NotificationService>(
     NotificationService(accountRepository: Get.find(), accountService: Get.find()),

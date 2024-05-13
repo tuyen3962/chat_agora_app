@@ -6,9 +6,11 @@ part 'account.g.dart';
 @JsonSerializable()
 class Account {
   String id;
+  String? email;
 
   Account({
     required this.id,
+    this.email,
   });
 
   factory Account.fromJson(Map<String, dynamic> json) => _$AccountFromJson(json);
@@ -17,9 +19,11 @@ class Account {
 
   Account copyWith({
     String? id,
+    String? email,
   }) {
     return Account(
       id: id ?? this.id,
+      email: email ?? this.email,
     );
   }
 }

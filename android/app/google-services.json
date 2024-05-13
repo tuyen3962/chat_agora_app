@@ -1,26 +1,124 @@
 {
   "project_info": {
-    "project_number": "854551425472",
-    "project_id": "hitek-example",
-    "storage_bucket": "hitek-example.appspot.com"
+    "project_number": "115394668631",
+    "firebase_url": "https://web-chat-709ef.firebaseio.com",
+    "project_id": "web-chat-709ef",
+    "storage_bucket": "web-chat-709ef.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:854551425472:android:5efceaf00eefc3d1aa1825",
+        "mobilesdk_app_id": "1:115394668631:android:06d1bb418b3d9a740a9b12",
         "android_client_info": {
-          "package_name": "com.hitek.example"
+          "package_name": "com.cris.webrtc_demo"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "115394668631-2kb0oq0lbpkuev54j3p0l3v8gievu08d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyCw3jkR3kL2UDgkOALTJ0ZAHhIpoan-7Jw"
+          "current_key": "AIzaSyBwo78rwJj2Fx6677n_O5S5VDotr1g0Fng"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "115394668631-2kb0oq0lbpkuev54j3p0l3v8gievu08d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "115394668631-8livoc4rm908i864fgakcrg50oupifdq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "y"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115394668631:android:8bf17794cf1eaaac0a9b12",
+        "android_client_info": {
+          "package_name": "com.example.demo_chat_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "115394668631-e2v69jk3evpttucq1j4la3v5moehkkd9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.demo_chat_application",
+            "certificate_hash": "2d80d9eee46f1ff3947432014f303b5a8d1ddb64"
+          }
+        },
+        {
+          "client_id": "115394668631-2kb0oq0lbpkuev54j3p0l3v8gievu08d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwo78rwJj2Fx6677n_O5S5VDotr1g0Fng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "115394668631-2kb0oq0lbpkuev54j3p0l3v8gievu08d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "115394668631-8livoc4rm908i864fgakcrg50oupifdq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "y"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115394668631:android:ba4cb168e5cf21ce0a9b12",
+        "android_client_info": {
+          "package_name": "com.hitek.example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "115394668631-2kb0oq0lbpkuev54j3p0l3v8gievu08d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwo78rwJj2Fx6677n_O5S5VDotr1g0Fng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "115394668631-2kb0oq0lbpkuev54j3p0l3v8gievu08d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "115394668631-8livoc4rm908i864fgakcrg50oupifdq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "y"
+              }
+            }
+          ]
         }
       }
     }

@@ -34,3 +34,9 @@ EdgeInsets margin({
       left: (left ?? horizontal ?? all ?? 0).width,
       right: (right ?? horizontal ?? all ?? 0).width,
     );
+
+extension ReponsiveSizeExtension on num {
+  double get h => heightScale(this.toDouble());
+
+  double get w => widthScale(this.toDouble());
+}

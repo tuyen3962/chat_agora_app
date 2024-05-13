@@ -2,18 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CLIENT_ID</key>
+	<string>115394668631-m2jedd55q4cr9gqq36nahqa1vivedt3n.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.115394668631-m2jedd55q4cr9gqq36nahqa1vivedt3n</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>115394668631-e2v69jk3evpttucq1j4la3v5moehkkd9.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyA7Cr2YPNHWpOWOlmGkudRvOPc1Vf1KzZM</string>
+	<string>AIzaSyDSFMj4Osh1ySVYsRIzciVND3Uw7MlrtHU</string>
 	<key>GCM_SENDER_ID</key>
-	<string>854551425472</string>
+	<string>115394668631</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.hitek.example</string>
 	<key>PROJECT_ID</key>
-	<string>hitek-example</string>
+	<string>web-chat-709ef</string>
 	<key>STORAGE_BUCKET</key>
-	<string>hitek-example.appspot.com</string>
+	<string>web-chat-709ef.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +31,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:854551425472:ios:09e2305338698648aa1825</string>
+	<string>1:115394668631:ios:6fd057ec14fe4e650a9b12</string>
+	<key>DATABASE_URL</key>
+	<string>https://web-chat-709ef.firebaseio.com</string>
 </dict>
 </plist>
