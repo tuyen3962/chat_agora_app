@@ -1,0 +1,163 @@
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
+project.ext.envConfigFiles = [
+    dev: ".env.dev",
+    staging: ".env.staging",
+    qas: ".env.qas",
+    production: ".env.production",
+]
+
+apply from: project(':flutter_config').projectDir.getPath() + "/dotenv.gradle"
+
+android {
+    compileSdkVersion 33
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId "com.hitek.example"
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        resValue "string", "build_config_package", "com.hitek" // used when package name when init project is different with applicationId
+
+    }
+
+    signingConfigs {
+        release {
+          if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+                storeFile file(MYAPP_UPLOAD_STORE_FILE)
+                storePassword MYAPP_UPLOAD_STORE_PASSWORD
+                keyAlias MYAPP_UPLOAD_KEY_ALIAS
+                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+
+            }
+        }
+        debug {
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }
+    buildTypes {
+        debug {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig signingConfigs.debug
+            ndk {
+                abiFilters "arm64-v8a", "armeabi-v7a"
+            }
+        }
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig signingConfigs.release
+            shrinkResources false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+
+            ndk {
+                abiFilters "arm64-v8a" , "armeabi-v7a"
+            }
+        }
+    }
+
+    flavorDimensions "environment"
+    productFlavors {
+        dev {
+            dimension "environment"
+        }
+
+        staging {
+            dimension "environment"
+        }
+
+        qas {
+            dimension "environment"
+        }
+
+        production {
+            dimension "environment"
+        }
+    }
+
+    packagingOptions {
+        // arm64-v8a
+        exclude 'lib/arm64-v8a/libagora_dav1d_extensiokn.so'
+        exclude 'lib/arm64-v8a/libagora_segmentation_extension.so'
+        exclude 'lib/arm64-v8a/libagora_fd_extension.so'
+        exclude 'lib/arm64-v8a/libagora_jnd_extension.so'
+        exclude 'lib/arm64-v8a/libagora_ai_denoise_extension.so'
+
+        // armeabi-v7a
+        exclude 'lib/armeabi-v7a/libagora_dav1d_extension.so'
+        exclude 'lib/armeabi-v7a/libagora_segmentation_extension.so'
+        exclude 'lib/armeabi-v7a/libagora_fd_extension.so'
+        exclude 'lib/armeabi-v7a/libagora_jnd_extension.so'
+        exclude 'lib/armeabi-v7a/libagora_ai_denoise_extension.so'
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def formattedDate = new Date().format('ddMMyy')
+            def versionName = variant.versionName
+            def versionCode = variant.versionCode
+            def _name = "-"+formattedDate+"-v" + versionName+"(" + versionCode + ")"
+            def newName = output.outputFile.name
+            def extension = newName.substring(newName.lastIndexOf("."));
+
+            newName = newName.replace("app-", "HITEK-")
+            newName = newName.replace(extension, _name+extension)
+            output.outputFileName  = newName
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+
+apply plugin: 'com.google.gms.google-services'

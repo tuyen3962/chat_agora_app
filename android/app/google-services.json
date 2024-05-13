@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "854551425472",
+    "project_id": "hitek-example",
+    "storage_bucket": "hitek-example.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:854551425472:android:5efceaf00eefc3d1aa1825",
+        "android_client_info": {
+          "package_name": "com.hitek.example"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw3jkR3kL2UDgkOALTJ0ZAHhIpoan-7Jw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
